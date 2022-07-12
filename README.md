@@ -16,13 +16,31 @@ Program Files (x86).
 * Microsoft Visual Studio 2022 Build Tools (on Windows)
 * Windows 10 SDK ver. 10.0.19041.0 (on Windows)
 
-To modify either version/path to Visual Studio 2022 or Windows 10 SDK edit file
-`ClangMSVC.toolchain.cmake`.
+To modify either version or path to Visual Studio 2022 or Windows 10 SDK edit
+file `ClangMSVC.toolchain.cmake`.
 
 ## Build
+### Cross Compilation
+This was the purpose of this experiment.
 ``` shell
-mkdir build && cmake -S . -B build/ -G Ninja --toolchain ClangMSVC.toolchain.cmake
+cmake -S. -Bbuild/ -GNinja --toolchain ClangMSVC.toolchain.cmake
 cmake --build build/
 ```
-Above should bootstrap `build/` directory and clone and configure SDL2 from
-Github. Then it should build `wslsdlexample.exe` binary.
+
+### Linux Native
+```shell
+cmake -S. -Bbuild/ -GNinja
+cmake --build build/
+```
+
+### Windows Native
+```shell
+cmake.exe -S. -Bbuild/ -GNinja
+cmake.exe --build build/
+```
+
+Above commands should bootstrap `build/` directory and clone and configure SDL2
+from Github. Then it should build `wslsdlexample[.exe]` binary.
+
+As you can see the only difference between native and cross-compile scenarios
+is prsence of `--toolchain` file.
