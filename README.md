@@ -23,19 +23,19 @@ file `ClangMSVC.toolchain.cmake`.
 ### Cross Compilation
 This was the purpose of this experiment.
 ``` shell
-cmake -S. -Bbuild/ -GNinja --toolchain ClangMSVC.toolchain.cmake
+cmake -Bbuild/ -GNinja --toolchain ClangMSVC.toolchain.cmake
 cmake --build build/
 ```
 
 ### Linux Native
 ```shell
-cmake -S. -Bbuild/ -GNinja
+cmake -Bbuild/ -GNinja
 cmake --build build/
 ```
 
 ### Windows Native
 ```shell
-cmake.exe -S. -Bbuild/ -GNinja
+cmake.exe -Bbuild/ -GNinja
 cmake.exe --build build/
 ```
 
